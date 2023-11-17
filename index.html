@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meu Boilerplate</title>
+  <style>
+    body {
+      box-sizing: border-box;
+      background-color: #2A2930;
+      width: 10%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      color: #CD7C19;
+    }
+    .container {
+      display: flex;
+      overflow-x: auto;
+      width: 100vw;
+      height: 110vw;
+      background: #444;
+      align-self: flex-start;
+
+      
+    }
+    .card {
+        width: 47vw;
+        height: 87vw;
+        border-radius: 10px;
+        background-color: white;
+    }
+
+    .scroll{
+        display: flex;
+        padding: 0.5vw;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+        scroll-behavior: smooth;
+        column-gap: 0.5vw;
+    }
+    .spacer{
+      width: 20vw;
+    }
+
+    .red{background: red}
+    .blue{background: blue}
+    .green{background: green}
+  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&display=swap">
+</head>
+<body>
+  <header>
+    <h1>Meu Carrossel de Zoom</h1>
+  </header>
+    <div class="container" id="container" >
+        <div class="scroll" id="scroll">
+            <div class="spacer"></div>
+            <div class="card" id="c01"></div>
+            <div class="card" id="c02"></div>
+            <div class="card" id="c03"></div>
+            <div class="spacer"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
