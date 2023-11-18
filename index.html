@@ -1,71 +1,249 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Meu Boilerplate</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       box-sizing: border-box;
-      background-color: #2A2930;
-      width: 10%;
+      background-color: #42414C;
+      width: 100%;
       margin: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
       font-family: 'Poppins', sans-serif;
       color: #CD7C19;
     }
+
+    .main {
+      width: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: auto;
+    }
+
     .container {
+      margin: auto;
       display: flex;
       overflow-x: auto;
-      width: 100vw;
-      height: 110vw;
-      background: #444;
-      align-self: flex-start;
-
-      
+      width: 100%;
+      padding: 3% 0%;
+      /* background: #444; */
     }
+
+    .container::-webkit-scrollbar {
+      height: 5px;
+    }
+
+    .container::-webkit-scrollbar-thumb {
+      background: #55555599;
+      border-radius: 30%;
+    }
+
     .card {
-        width: 47vw;
-        height: 87vw;
-        border-radius: 10px;
-        background-color: white;
+      width: 47vw;
+      height: 100%;
+      border-radius: 10px;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      font-size: 2.8vw;
+      justify-content: flex-start;
+      overflow: hidden;
     }
 
-    .scroll{
-        display: flex;
-        padding: 0.5vw;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: nowrap;
-        scroll-behavior: smooth;
-        column-gap: 0.5vw;
+    .card > .label {
+      font-size: 4vw;
+      background-color: #F1AD37;
+      color: #000;
+      padding: 2vw 3vw;
+      color: #222;
+      margin: 0;
     }
-    .spacer{
+
+    .card ul {
+      padding-left: 6vw;
+      line-height: 3vw;
+    }
+
+    .card li {
+      margin: 4vw 0vw;
+    }
+
+    .card .footer {
+      text-align: center;
+      font-weight: 800;
+      background-color: antiquewhite;
+      padding: 2vw;
+      margin-top: auto;
+      justify-self: flex-end;
+    }
+
+
+    .scroll {
+      display: flex;
+      padding: 0.5vw;
+      align-items: center;
+      justify-content: space-around;
+      flex-wrap: nowrap;
+      scroll-behavior: smooth;
+      column-gap: 0.5vw;
+    }
+
+    .spacer {
       width: 20vw;
     }
 
-    .red{background: red}
-    .blue{background: blue}
-    .green{background: green}
+
+    @media (min-aspect-ratio: 4/5) or (min-width: 650px) {
+      .spacer {
+        display: none;
+        width: 0;
+      }
+
+      .scroll {
+        width: 100%;
+        justify-content: space-around;
+        place-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      #c02 {
+        transform: scale(1.04);
+        margin: 0 10px;
+      }
+
+      .card {
+        width: 270px;
+        min-height: 500px;
+        height: fit-content;
+        font-size: 16pt;
+      }
+
+      .card ul {
+        padding: 0px 20px;
+        line-height: 13pt;
+        list-style-type: none;
+      }
+      .card li {
+        margin: 14pt 10pt;
+      }
+
+      .card .label {
+        font-size: 18pt;
+        padding: 10px;
+      }
+
+      .card .content {
+        font-size: 12pt;
+        overflow-y: auto;
+      }
+
+      .card .footer {
+        font-size: 12pt;
+        padding: 15px;
+      }
+
+      .main {
+        align-content: center;
+        justify-items: center;
+      }
+    }
+
+    @media (min-width: 950px) {
+      .scroll {
+        flex-wrap: nowrap;
+        gap: 15px;
+        justify-content: center;
+      }
+      .card {
+        width: 300px;
+        height: 100%;
+      }
+      .card .content {
+        font-size: 14pt;
+      }
+      .card .footer {
+        font-size: 16pt;
+      }
+
+    }
   </style>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&display=swap">
 </head>
+
 <body>
   <header>
     <h1>Meu Carrossel de Zoom</h1>
   </header>
-    <div class="container" id="container" >
-        <div class="scroll" id="scroll">
-            <div class="spacer"></div>
-            <div class="card" id="c01"></div>
-            <div class="card" id="c02"></div>
-            <div class="card" id="c03"></div>
-            <div class="spacer"></div>
-        </div>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
+  <div class="main">
+    <div class="container" id="container">
+      <div class="scroll" id="scroll">
+        <div class="spacer"></div>
 
+        <div class="card" id="c01">
+          <span class="label">Card 01</span>
+          <div class="content">
+            <ul>
+              <li>Thing that is the thing</li>
+              <li>Thing that im testing here</li>
+              <li>Another little thing</li>
+              <li>Other kind of stuff to make difference</li>
+              <li>A lot more...</li>
+            </ul>
+          </div>
+          <div class="footer">Click Here</div>
+        </div>
+
+        <div class="card" id="c02">
+          <span class="label">Card 02</span>
+          <div class="content">
+            <ul>
+              <li>Thing that is the thing</li>
+              <li>Thing that im testing here</li>
+              <li>Anotehr little thing</li>
+              <li>Other kind of stuff to make difference</li>
+              <li>Other kind of stuff to make difference</li>
+              <li>Other kind of stuff to make difference</li>
+              <li>Other kind of stuff to make difference</li>
+              <li>A lot more...</li>
+            </ul>
+          </div>
+          <div class="footer">Click Here</div>
+        </div>
+
+        <div class="card" id="c03">
+          <span class="label">Card 03</span>
+          <div class="content">
+            <ul>
+              <li>Thing that is the thing</li>
+              <li>Thing that im testing here</li>
+              <li>Anotehr little thing</li>
+              <li>Other kind of stuff to make difference</li>
+              <li>Other kind of stuff to make difference</li>
+              <li>Other kind of stuff to make difference</li>
+              <li>A lot more...</li>
+            </ul>
+          </div>
+          <div class="footer">Click Here</div>
+        </div>
+        <div class="spacer"></div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
